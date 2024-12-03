@@ -112,5 +112,4 @@ The Neighbor-Joining tree highlights relationships between the isolates. Example
 
 ## Contact
 For any queries, please reach out:
-- **Email**: your.email@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **GitHub**: [yourusername](https://github.com/PhilRTFM)
