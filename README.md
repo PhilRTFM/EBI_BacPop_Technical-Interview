@@ -4,7 +4,7 @@
 ![Biopython](https://img.shields.io/badge/BioPython-v1.81+-blue.svg)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-v3.5+-blue.svg)
 
-This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** during my application for the Pathogen Informatics and Modelling group at EMBL-EBI , which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree**.
+This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** concerning my application for the Pathogen Informatics and Modelling group at EMBL-EBI , which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree**.
 
 ---
 
