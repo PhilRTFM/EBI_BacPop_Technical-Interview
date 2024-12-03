@@ -38,7 +38,7 @@ Download the genomes archive `s_pneumoniae_genomes.tar.gz` provided with the cha
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/yourusername/s_pneumoniae_distance_challenge.git
+git clone https://[github.com/yourusername/s_pneumoniae_distance_challenge](https://github.com/PhilRTFM/EBI_BacPop_Technical-Interview.git
 cd s_pneumoniae_distance_challenge
 ```
 
