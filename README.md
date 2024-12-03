@@ -86,6 +86,13 @@ cd EBI_BacPop_Technical-Interview
 ## Example Results
 
 ### Pairwise Distance Matrix
+
+
+```
+(((R6.fa:0.1316,TIGR4.fa:0.1316):0.7129,14412_3#82.contigs_velvet.fa:0.7129):0.1425,14412_3#84.contigs_velvet.fa:0.1425);
+```
+The Newick `phylogenetic_tree.nwk` output file.
+
 ```plaintext
         R6.fa   TIGR4.fa        14412_3#82.contigs_velvet.fa    14412_3#84.contigs_velvet.fa
 R6.fa   0.0000  0.9744  0.9887  0.9887
