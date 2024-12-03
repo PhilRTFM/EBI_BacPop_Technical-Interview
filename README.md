@@ -3,10 +3,6 @@
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Biopython](https://img.shields.io/badge/BioPython-v1.81+-blue.svg)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-v3.5+-blue.svg)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/s_pneumoniae_distance_challenge)](https://github.com/yourusername/s_pneumoniae_distance_challenge/issues)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/s_pneumoniae_distance_challenge)](https://github.com/yourusername/s_pneumoniae_distance_challenge/network)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/s_pneumoniae_distance_challenge)](https://github.com/yourusername/s_pneumoniae_distance_challenge/stargazers)
-[![GitHub license](https://img.shields.io/github/license/yourusername/s_pneumoniae_distance_challenge)](https://github.com/yourusername/s_pneumoniae_distance_challenge/blob/main/LICENSE)
 
 This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** during my application for the Pathogen Informatics and Modelling group at EMBL-EBI , which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree**.
 
