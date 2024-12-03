@@ -110,11 +110,6 @@ The Neighbor-Joining tree highlights relationships between the isolates. Example
 
 ---
 
-## Repository Link
-[GitHub Repository](https://github.com/yourusername/s_pneumoniae_distance_challenge)
-
----
-
 ## Contact
 For any queries, please reach out:
 - **Email**: your.email@example.com
