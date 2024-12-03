@@ -96,7 +96,8 @@ TIGR4.fa        0.9744  0.0000  0.9885  0.9885
 ### Phylogenetic Tree Visualization
 The Neighbor-Joining tree highlights relationships between the isolates. Example:
 
-![Tree Visualization](https://example.com/tree_visualization.png) <!-- Replace with your tree image URL -->
+![phylogenetic_tree](https://github.com/user-attachments/assets/5d48707e-6491-4103-9a9c-9acf2ffc116f)
+sualization.png) <!-- Replace with your tree image URL -->
 
 ---
 
@@ -107,16 +108,6 @@ The Neighbor-Joining tree highlights relationships between the isolates. Example
 
 2. **Effect of Sketch Size**  
    Increasing the sketch size improves accuracy but increases computational overhead. A sketch size of 1000 provides a good balance.
-
----
-
-## Additional Instructions
-
-### Scheduling the Interview
-Please book a 20-minute slot for the interview in the week commencing 9th December using [this Calendly link](https://calendly.com/shorsfield-ebi/code_discussions).
-
-### Submitting the Code
-Email the completed code file(s) to `shorsfield@ebi.ac.uk`, ensuring your name is included in the file name.
 
 ---
 
