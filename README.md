@@ -97,7 +97,6 @@ TIGR4.fa        0.9744  0.0000  0.9885  0.9885
 The Neighbor-Joining tree highlights relationships between the isolates. Example:
 
 ![phylogenetic_tree](https://github.com/user-attachments/assets/5d48707e-6491-4103-9a9c-9acf2ffc116f)
-sualization.png) <!-- Replace with your tree image URL -->
 
 ---
 
