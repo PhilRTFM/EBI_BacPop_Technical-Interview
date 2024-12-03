@@ -10,7 +10,7 @@ This repository contains my submission for the **Streptococcus pneumoniae Distan
 
 ## Features
 
-- Efficient processing of genome sequences using Biopython.
+- Efficient processing of genome sequences using **Biopython**.
 - Implementation of **MinHash Sketching** for scalable computation.
 - Calculation of **Jaccard Distances** (exact and approximate).
 - Construction and visualization of a **Neighbor-Joining Tree**.
