@@ -6,6 +6,10 @@
 
 This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** concerning my application for the Pathogen Informatics and Modelling group at EMBL-EBI , which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree**.
 
+Here is a graphical workflow :
+
+![Challenge drawio](https://github.com/user-attachments/assets/13726f5b-494c-43b5-a139-f85e9f2e9e92)
+
 ---
 
 ## Features
