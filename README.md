@@ -4,7 +4,7 @@
 ![Biopython](https://img.shields.io/badge/BioPython-v1.81+-blue.svg)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-v3.5+-blue.svg)
 
-This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** concerning my application for the Pathogen Informatics and Modelling group at EMBL-EBI , which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree**.
+This repository contains my submission for the **Streptococcus pneumoniae Distance Coding Challenge** concerning my application for the Pathogen Informatics and Modelling group at EMBL-EBI, which implements the **MinHash Algorithm** to compute genetic distances between isolates and visualize the relationships using a **Neighbor-Joining Tree** as in (Ondov, B.D., Treangen, T.J., Melsted, P. et al. Mash: fast genome and metagenome distance estimation using MinHash. Genome Biol 17, 132 (2016). https://doi.org/10.1186/s13059-016-0997-x).
 
 Here is a graphical workflow :
 
@@ -91,38 +91,65 @@ cd EBI_BacPop_Technical-Interview
 
 ## Example Results
 
-### Pairwise Distance Matrix
+### Pairwise Distance Matrices
 
+#### MinHash Jaccard Distance Matrix
+The MinHash-based distances, computed using sketches of size 1000, approximate the true Jaccard distances. This method is computationally efficient and well-suited for large datasets:
+```plaintext
+[[0.0000 0.2624 0.9868 0.9868]
+ [0.2624 0.0000 0.9858 0.9863]
+ [0.9868 0.9858 0.0000 0.2847]
+ [0.9868 0.9863 0.2847 0.0000]]
+```
+
+#### Full Jaccard Distance Matrix
+The exact Jaccard distances, calculated using full k-mer sets, provide the baseline for evaluating the accuracy of the MinHash approximation:
+```plaintext
+[[0.0000 0.9744 0.9887 0.9887]
+ [0.9744 0.0000 0.9885 0.9885]
+ [0.9887 0.9885 0.0000 0.5608]
+ [0.9887 0.9885 0.5608 0.0000]]
+```
+
+### Phylogenetic Tree
+The Neighbor-Joining tree, built from the computed distance matrices, highlights the evolutionary relationships between isolates. Below is the Newick format output:
+
+#### Full Jaccard Tree
 ```
 (((R6.fa:0.1316,TIGR4.fa:0.1316):0.7129,14412_3#82.contigs_velvet.fa:0.7129):0.1425,14412_3#84.contigs_velvet.fa:0.1425);
 ```
-The Newick `phylogenetic_tree.nwk` output file.
 
-```plaintext
-	R6.fa	TIGR4.fa	14412_3#82.contigs_velvet.fa	14412_3#84.contigs_velvet.fa
-R6.fa	0.0000	0.2624	0.9868	0.9868
-TIGR4.fa	0.2624	0.0000	0.9858	0.9863
-14412_3#82.contigs_velvet.fa	0.9868	0.9858	0.0000	0.2847
-14412_3#84.contigs_velvet.fa	0.9868	0.9863	0.2847	0.0000
+#### MinHash Jaccard Tree
+```
+(((R6.fa:0.1261,TIGR4.fa:0.1261):0.7202,14412_3#82.contigs_velvet.fa:0.7202):0.1408,14412_3#84.contigs_velvet.fa:0.1408);
 ```
 
-### Phylogenetic Tree Visualization
-The Neighbor-Joining tree highlights relationships between the isolates. Example:
+### Tree Visualization
+Both trees, visualized side by side, demonstrate a similarity between the Full Jaccard and MinHash methods:
 
-![phylogenetic_tree](https://github.com/user-attachments/assets/abc6f47b-8581-4d00-affe-380a2a18b0b2)
+![téléchargement](https://github.com/user-attachments/assets/82ffc663-d5fa-4e31-85ea-461e1a487305)
 
 ---
 
 ## Discussion
 
-1. **Comparison of Full and MinHash Distances**  
-   The MinHash distances closely approximate the full Jaccard distances while being computationally efficient.
+1. **Comparison of Full and MinHash Distances**:
+   - The Full Jaccard distances serve as the ground truth for assessing the MinHash approximation.
+   - Despite slight numerical differences, the MinHash-based tree retains the same topology as the Full Jaccard tree, confirming its accuracy for phylogenetic inference.
 
-2. **Effect of Sketch Size**  
-   Increasing the sketch size improves accuracy but increases computational overhead. A sketch size of 1000 provides a good balance.
+2. **Effect of Sketch Size**:
+   - Increasing the sketch size reduces the approximation error, aligning MinHash distances closer to Full Jaccard distances.
+   - However, larger sketches increase memory usage and runtime. A size of 1000 offers a balanced trade-off for typical datasets.
+![téléchargement (1)](https://github.com/user-attachments/assets/5ed5bce1-14fa-4fbc-a84b-ba035afc02b9)
+
+
+3. **Biological Relevance**:
+   - Phylogenetic trees elucidate evolutionary relationships between isolates, aiding in understanding pathogen lineages.
+   - Even if the MinHash sketches computation takes time, computational efficiency of MinHash may enables analysis of large-scale genomic datasets, critical in epidemiological studies.
 
 ---
 
 ## Contact
-For any queries, please reach out:
+
+For queries, reach out to:
 - **GitHub**: [PhilRTFM](https://github.com/PhilRTFM)
