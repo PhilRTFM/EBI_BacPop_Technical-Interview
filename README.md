@@ -8,7 +8,8 @@ This repository contains my submission for the **Streptococcus pneumoniae Distan
 
 Here is a graphical workflow :
 
-![Challenge drawio](https://github.com/user-attachments/assets/13726f5b-494c-43b5-a139-f85e9f2e9e92)
+![Challenge drawio (1)](https://github.com/user-attachments/assets/dac8c0d9-6af4-4803-844b-e4e4ccdd99d0)
+
 
 ---
 
@@ -16,7 +17,7 @@ Here is a graphical workflow :
 
 - Efficient processing of genome sequences using **Biopython**.
 - Implementation of **MinHash Sketching** for scalable computation.
-- Calculation of **Jaccard Distances** (exact and approximate).
+- Calculation of **Jaccard Distances**.
 - Construction and visualization of a **Neighbor-Joining Tree**.
 - Modular Python code.
 
@@ -33,7 +34,9 @@ Before you begin, ensure you have the following:
   ```
 
 ### Genome Files
-Download the genomes archive `s_pneumoniae_genomes.tar.gz` provided with the challenge and extract it into the repository folder.
+When cloning the repo, you will have 4 fasta files associated : 
+`R6.fa` and `TIGR4.fa` : reference sequences.
+`14412_3#82.contigs_velvet.fa` and `14412_3#84.contigs_velvet.fa` : draft sequences, assembled from shotgun sequencing runs.
 
 ---
 
@@ -44,7 +47,6 @@ Clone the repository and navigate to the project directory:
 ```bash
 git clone https://github.com/PhilRTFM/EBI_BacPop_Technical-Interview.git
 cd EBI_BacPop_Technical-Interview
-
 ```
 
 ---
@@ -91,24 +93,23 @@ cd EBI_BacPop_Technical-Interview
 
 ### Pairwise Distance Matrix
 
-
 ```
 (((R6.fa:0.1316,TIGR4.fa:0.1316):0.7129,14412_3#82.contigs_velvet.fa:0.7129):0.1425,14412_3#84.contigs_velvet.fa:0.1425);
 ```
 The Newick `phylogenetic_tree.nwk` output file.
 
 ```plaintext
-        R6.fa   TIGR4.fa        14412_3#82.contigs_velvet.fa    14412_3#84.contigs_velvet.fa
-R6.fa   0.0000  0.9744  0.9887  0.9887
-TIGR4.fa        0.9744  0.0000  0.9885  0.9885
-14412_3#82.contigs_velvet.fa    0.9887  0.9885  0.0000  0.5608
-14412_3#84.contigs_velvet.fa    0.9887  0.9885  0.5608  0.0000
+	R6.fa	TIGR4.fa	14412_3#82.contigs_velvet.fa	14412_3#84.contigs_velvet.fa
+R6.fa	0.0000	0.2624	0.9868	0.9868
+TIGR4.fa	0.2624	0.0000	0.9858	0.9863
+14412_3#82.contigs_velvet.fa	0.9868	0.9858	0.0000	0.2847
+14412_3#84.contigs_velvet.fa	0.9868	0.9863	0.2847	0.0000
 ```
 
 ### Phylogenetic Tree Visualization
 The Neighbor-Joining tree highlights relationships between the isolates. Example:
 
-![phylogenetic_tree](https://github.com/user-attachments/assets/5d48707e-6491-4103-9a9c-9acf2ffc116f)
+![phylogenetic_tree](https://github.com/user-attachments/assets/abc6f47b-8581-4d00-affe-380a2a18b0b2)
 
 ---
 
