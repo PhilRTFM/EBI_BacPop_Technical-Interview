@@ -1,0 +1,5 @@
+hashlib    # Built-in, not needed in requirements.txt
+numpy
+pandas
+biopython
+matplotlib
