@@ -62,30 +62,53 @@ cd EBI_BacPop_Technical-Interview
 
 ### Outputs
 1. **Pairwise Distance Matrix**: Saved as `pairwise_distance_matrix.txt`.
-2. **MinHash Sketches**: Each genome's sketch saved as `<genome>_sketch.txt`.
-3. **Neighbor-Joining Tree**:
-   - Newick format: `phylogenetic_tree.nwk`
-   - PNG visualization: `phylogenetic_tree.png`
-
+2. **Neighbor-Joining Tree**:
+   - Newick format: `phylogenetic_{method}_tree.nwk`
+   - PNG visualization: `phylogenetic_{method}_tree.png`
+Where {method} is `full` for k-mer Jaccard or `minhash` with sketches.
 ---
 
 ## Workflow
 
 1. **FASTA Parsing**  
-   Load genomes using Biopython and process sequences into k-mers of length 14.
+   - **Function(s)**: 
+     - `load_fasta(file_path)`: Loads genome sequences from FASTA files and concatenates them into a single string.
+     - `extract_kmers(sequence, k=14)`: Extracts all unique k-mers (of length 14) from the concatenated sequence.
+   - **Role**:
+     - Converts genome sequences into k-mer sets for further analysis.
+     - Prepares the dataset for exact and approximate distance calculations.
 
 2. **14-mers and Jaccard Distance**  
-   Compute the exact Jaccard distances using k-mer sets.
+   - **Function(s)**: 
+     - `full_distance(kmers_a, kmers_b)`: Computes the exact Jaccard distance between two sets of k-mers.
+     - `construct_distance_matrix(labels, distances)`: Constructs a symmetric distance matrix from pairwise distances.
+   - **Role**:
+     - Computes exact pairwise Jaccard distances for all genome pairs using the full k-mer sets.
+     - Produces a numerical representation of genetic similarity between genomes in matrix form.
 
 3. **MinHash Sketching**  
-   - Hash each 14-mer (forward and reverse complements).
-   - Create sketches by selecting the smallest 1000 hashes.
+   - **Function(s)**: 
+     - `hash_kmer(kmer)`: Generates a hash value for each k-mer, considering both forward and reverse complement.
+     - `minhash_sketch(kmers, sketch_size=1000)`: Generates a sketch of the `sketch_size` smallest hash values from a set of k-mers.
+   - **Role**:
+     - Provides a compact representation of k-mer sets for efficient distance computation.
+     - Handles large datasets by reducing memory requirements while retaining essential information.
 
 4. **Approximate Jaccard Distance**  
-   Use MinHash sketches to compute approximate distances.
+   - **Function(s)**: 
+     - `minhash_distance(sketch_a, sketch_b)`: Computes the approximate Jaccard distance between two MinHash sketches.
+     - `construct_distance_matrix(labels, distances)`: Constructs a distance matrix for the approximate distances.
+   - **Role**:
+     - Approximates the genetic distances between genomes using MinHash sketches, saving computation time and memory.
 
 5. **Neighbor-Joining Tree**  
-   Construct and visualize a phylogenetic tree using the distance matrix.
+   - **Function(s)**: 
+     - `doNeighbourJoining(distance_matrix, labels)`: Constructs a phylogenetic tree using the Neighbor-Joining algorithm.
+     - `save_newick(tree, output_path)`: Saves the tree in Newick format.
+     - `plot_tree_from_newick(newick_path, output_path)`: Visualizes the tree and saves it as an image.
+   - **Role**:
+     - Constructs phylogenetic trees based on both full and MinHash distance matrices.
+     - Saves the trees in both Newick format and graphical PNG format for further analysis and visualization.
 
 ---
 
@@ -132,6 +155,19 @@ Both trees, visualized side by side, demonstrate a similarity between the Full J
 ---
 
 ## Discussion
+
+### Benchmarking
+
+1. **Method: Full Jaccard Distance**
+```
+Time for Full Jaccard Distance Matrix: 3.7777 seconds
+```
+
+2. **Method: MinHash Jaccard Distance**
+```
+Time for MinHash Sketches: 31.3916 seconds
+Time for MinHash Distance Matrix: 0.0030 seconds
+```
 
 1. **Comparison of Full and MinHash Distances**:
    - The Full Jaccard distances serve as the ground truth for assessing the MinHash approximation.
